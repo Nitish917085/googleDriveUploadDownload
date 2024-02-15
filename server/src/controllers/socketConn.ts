@@ -1,5 +1,6 @@
 const { googleDriveConfig } = require("../config/config");
 
+//extract id of gdrive link
 function extractFileId(url: string) {
     const match = url.match(/file\/d\/(.*?)\//);
     return match ? match[1] : null;
@@ -9,9 +10,11 @@ export const downloadSocket = async (socket: any, io: any) => {
 
     socket.on('download', async (driveLink: any) => {
         try {
-            const drive = googleDriveConfig()
+            //gdrive configurations
+            const drive = googleDriveConfig()       
             const fileId = extractFileId(driveLink)
 
+            //if fileid is null emits invalidlink event
             if (!fileId) return socket.emit("invalidlink")
 
             let downloadProgress = 0;
@@ -25,12 +28,14 @@ export const downloadSocket = async (socket: any, io: any) => {
                     { responseType: 'stream' }
                 );
 
+                // track the progress of download file from gdrive
                 download.data.on('data', (chunk: any) => {
                     downloadProgress += chunk.length;
                     let progress = (downloadProgress / fileSizeInBytes) * 100
                     socket.emit('downloadProgress', progress)
                 });
 
+                // upload to my google drive
                 const upload = await drive.files.create(
                     {
                         requestBody: {
@@ -43,6 +48,7 @@ export const downloadSocket = async (socket: any, io: any) => {
                         }
                     },
                     {
+                        // track the progress of upload file to my gdrive
                         onUploadProgress: (evt: any) => {
                             const progress = (evt.bytesRead / fileSizeInBytes) * 100;
                             socket.emit("uploadProgress", progress)

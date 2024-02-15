@@ -45,6 +45,8 @@ function App() {
   return (
     <>
       <div className='appContainer'>
+        <div>I'm using free version of render, so it might delay to respond or have to retry 3-4 times.</div>
+        <div>I'have only 1.3gb of free space on my gdrive so larger than 1.3gb file may not able to upload.</div>
         <div className='inputContainer'>
 
           <input className='inputLink' type='text' placeholder='enter google drive link' value={link} onChange={(e) => setLink(e.target.value)} />
