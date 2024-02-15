@@ -30,4 +30,4 @@ To set up and run the client:
     `VITE_SERVERURL = 'http://127.0.0.1:5000'`
 4. Run the client.`npm run dev`
 
-The client uses videos which are accessed via a Google Drive link. This link is not provided in the repository for security reasons. You will need to obtain and provide this link yourself.
+I have provided google drive link on website , you can access the uploaded videos.

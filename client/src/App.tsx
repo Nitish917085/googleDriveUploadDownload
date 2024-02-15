@@ -29,7 +29,7 @@ function App() {
       alert("Something went wrong, please try again")
     })
 
-    socket.on("sucess", async (data: any) => {
+    socket.on("sucess", async () => {
       setIsProgress(false)
       alert("Successfully uploaded")
     })
