@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 5px;
+  color: white;
+  background-color: rgb(50, 50, 227);
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(14, 14, 99);
+  }
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 5px;
+}
+
+.appContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  .inputContainer {
+
+
+    display: flex;
+
+    .downloadButton {
+      width: 100px;
+    }
+
+    .inputLink {
+      font-size: 1.3rem;
+      border-bottom: 1px solid black;
+      background-color: beige;
+      width: 400px;
+
+    }
+  }
+
+  .progressStatus {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-end;
+
+    .progressBar {
+      gap: 10px;
+
+      div {
+        width: 100%;
+      }
+    }
+  }
+
+  .googlDriveContainer {
+    display: flex;
+    font-size: 20px;
+    gap: 20px;
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 5px;
+    
+    &:hover{
+      background-color: rgb(178, 178, 255);
+      cursor: pointer;
+    }
+
+    img {
+      width: 20px;
+    }
+  }
+
+}
